@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Pong Game</title>
+  </head>
+  <body>
+    <div class="start-screen" id="start-screen">
+      <h1 class="top-text" id="top-text">Feed me coin</h1>
+      <img
+        src="img/arcade-game.png"
+        alt="Pong arcade machine"
+        class="Pong-machine"
+        id="Pong-machine"
+      />
+      <img src="img/50-cent-coin.png" alt="50 cent coin" class="coin" id="coin" />
+      <p class="coin-text">"Hold left click" to grab coin</p>
+      <p class="insert-text">"Release" to insert the coin</p>
+    </div>
+    <div class="score" id="score">
+      <div id="player-score">0</div>
+      <div id="computer-score">0</div>
+    </div>
+    <p class="textGameScreen" id="textGameScreen">First to score 10 points wins !</p>
+    <div class="ball" id="ball"></div>
+    <div class="paddle left" id="player-paddle"></div>
+    <div class="paddle right" id="computer-paddle"></div>
+    <div class="modal hidden">
+      <img src="img/you_win.jpeg" alt="you win" class="msgWin hidden imgWin" id="msgWin" />
+      <img src="img/game-lose.jpg" alt="game lose" class="msgLose hidden imgLose" id="msgLose" />
+      <button class="retry"><img src="img/retryImg.png" alt="retry" /></button>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

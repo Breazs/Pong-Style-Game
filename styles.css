@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Flex:opsz,wght@8..144,200;8..144,500&display=swap");
+
+/* Resetting the browser's default values to easily define the sizes */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Creating color variables to have constant changing colors based on hsl format*/
+
+:root {
+  --hue: 200;
+  --saturation: 50%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+
+body {
+  background-color: var(--background-color);
+  /* Destroying the scroll bar when the ball goes beyond */
+  overflow: hidden;
+}
+
+/* Strat screen */
+
+.start-screen {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-image: url("img/poza2.jpg");
+}
+
+.top-text {
+  font-family: "Creepster", cursive;
+  padding-left: 40.4vw;
+  padding-top: 8vh;
+  color: rgba(227, 0, 38, 0.9);
+  font-size: 3.7vw;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.Pong-machine {
+  position: absolute;
+  left: 50%;
+  top: 20vh;
+  transform: translateX(-50%);
+  height: 60vh;
+}
+
+.coin {
+  position: absolute;
+  top: 21vw;
+  left: 14vw;
+  height: 15vh;
+}
+
+.coin-text {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2vw;
+  margin-top: 45vh;
+  margin-left: 13.5vh;
+  color: gold;
+}
+
+.insert-text {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2vw;
+  margin-top: 15vh;
+  margin-left: 39vw;
+  color: gold;
+}
+
+/* Game */
+
+.textGameScreen {
+  display: none;
+  color: var(--foreground-color);
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 4vh;
+  margin-top: 35vh;
+  margin-left: 37.8vw;
+  opacity: 0.5;
+}
+
+.paddle {
+  display: none;
+  /* Setting position in js (for the computer paddle) */
+  --position: 50;
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  /* Converting to vh value */
+  top: calc(var(--position) * 1vh);
+  /* Centering the paddle */
+  transform: translateY(-50%);
+  width: 1vh;
+  height: 12vh;
+}
+
+/* Player's paddle */
+
+.paddle.left {
+  left: 1vw;
+}
+
+/* Computer's paddle */
+
+.paddle.right {
+  right: 1vw;
+}
+
+.ball {
+  display: none;
+  --x: 50;
+  --y: 50;
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  left: calc(var(--x) * 1vw);
+  top: calc(var(--y) * 1vh);
+  /* Making the square look like a ball */
+  border-radius: 50%;
+  /* Centering the ball */
+  transform: translate(-50%, -50%);
+  width: 2.5vh;
+  height: 2.5vh;
+}
+
+.score {
+  justify-content: center;
+  font-weight: bold;
+  font-size: 8vh;
+  color: var(--foreground-color);
+}
+
+/* Selecting every child */
+
+.score > * {
+  /* Every score gets half of the screen */
+  flex-grow: 1;
+  flex-basis: 0;
+
+  padding: 0 2vh;
+  margin: 1vh 0;
+  opacity: 0.5;
+}
+
+.score > :first-child {
+  text-align: right;
+  border-right: 0.5vh solid var(--foreground-color);
+}
+
+body::before {
+  z-index: -1;
+}
+
+.game-over-screen {
+  z-index: 1;
+  background-color: blue;
+}
+
+.text-game-over {
+  font-size: 5vh;
+  position: center;
+  color: red;
+}
+
+.retry {
+  position: absolute;
+  top: 18rem;
+  right: 11.5rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(100px);
+  z-index: 5;
+}
+
+.msgWin {
+  color: red;
+}
+
+.msgLose {
+  color: blue;
+}
+
+.imgWin {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.imgLose {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
